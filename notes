@@ -1,6 +1,0 @@
-1. way to generate data
-2. snapshot vs cdc
-3. data variety
-4. kafka destination topic:
-	* batching
-	* compression

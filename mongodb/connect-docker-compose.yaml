@@ -83,16 +83,6 @@ services:
       # See https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-storage-sh
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
 
-
-  conduit:
-    # https://github.com/hariso/mongodb-kafka-connect
-    image: 'ghcr.io/hariso/conduit-mongo-connect:v0.1.0'
-    container_name: conduit
-    volumes:
-      - './default.yml:/app/pipelines/default.yml'
-    ports:
-      - '8081:8080'
-
   connect:
     image: ghcr.io/hariso/mongodb-kafka-connect:v0.1.0
     ports:

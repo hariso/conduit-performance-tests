@@ -11,7 +11,7 @@ pipelines:
           settings:
             collection: users
             db: test
-            uri: mongodb://mongo1:30001/?directConnection=true
+            uri: "mongodb://mongo1:30001,mongo2:30002,mongo3:30003/test?replicaSet=my-replica-set"
         - id: kafka-destination
           type: destination
           plugin: builtin:kafka

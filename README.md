@@ -1,5 +1,6 @@
 # conduit-performance-tests
 
+This repository contains a Docker setup that runs a Conduit and Kafka Connect pipeline, with the goal
 
 **Notes**:
 
@@ -10,6 +11,11 @@
 	* batching
 	* compression
 
+**To-dos**:
+1. reduce opencdc records so that dbz and conduit records look similar
+2. use built-in
+3. update conduit example: https://conduit.io/docs/using/connectors/additional-built-in-plugins
+4. test the kafka connector's performance (stretch goal?)
 
 **Commands**:
 

@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   mongo1:
     image: 'mongo:5'
@@ -17,6 +16,7 @@ services:
       test: 'test $$(echo "rs.initiate({_id:''my-replica-set'',members:[{_id:0,host:\"mongo1:30001\"},{_id:1,host:\"mongo2:30002\"},{_id:2,host:\"mongo3:30003\"}]}).ok || rs.status().ok" | mongo --port 30001 --quiet) -eq 1'
       interval: 10s
       start_period: 30s
+  
   mongo2:
     image: 'mongo:5'
     container_name: mongo2
@@ -30,6 +30,7 @@ services:
       - './data/mongo-2:/data/db'
     ports:
       - '30002:30002'
+  
   mongo3:
     image: 'mongo:5'
     container_name: mongo3
@@ -43,21 +44,17 @@ services:
       - './data/mongo-3:/data/db'
     ports:
       - '30003:30003'
+
   mongo-init:
     image: 'mongo:5'
     container_name: mongo-init
-    restart: "no"  # Ensure it runs once and exits
+    restart: "no"
     depends_on:
       mongo1:
         condition: service_healthy
     volumes:
       - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js
-    healthcheck:
-      test: "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/test --quiet"
-      interval: 5s
-      timeout: 5s
-      retries: 3
-      start_period: 5s
+    entrypoint: ["mongosh", "--host", "mongo1:30001", "/docker-entrypoint-initdb.d/init-db.js"]
 
   broker:
     image: confluentinc/cp-server:7.8.1
@@ -106,7 +103,6 @@ services:
       # See https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-storage-sh
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
 
-
   conduit:
     # https://github.com/hariso/conduit-mongo-connect
     image: 'ghcr.io/hariso/custom-conduit:v0.2.0'
@@ -115,7 +111,7 @@ services:
       broker:
         condition: service_healthy
       mongo-init:
-        condition: service_completed_successfully
+        condition: service_completed_successfully  # Ensure it only starts after DB is ready
     volumes:
       - './default.yml:/app/pipelines/default.yml'
     ports:

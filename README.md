@@ -10,6 +10,8 @@ This repository contains a Docker setup that runs a Conduit and Kafka Connect pi
 4. kafka destination topic:
 	* batching
 	* compression
+5. for mongodb, init containers worked better than init scripts in containers
+
 
 **To-dos**:
 1. reduce opencdc records so that dbz and conduit records look similar

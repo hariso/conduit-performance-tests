@@ -7,7 +7,7 @@ pipelines:
       connectors:
         - id: mongo-source
           type: source
-          plugin: standalone:mongo@latest
+          plugin: builtin:mongo
           settings:
             collection: users
             db: test
@@ -19,3 +19,4 @@ pipelines:
           settings:
             servers: "broker:29092"
             topic: destination-topic
+            sdk.batch.size: 80000

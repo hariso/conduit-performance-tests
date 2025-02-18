@@ -11,6 +11,7 @@ This repository contains a Docker setup that runs a Conduit and Kafka Connect pi
 	* batching
 	* compression
 5. for mongodb, init containers worked better than init scripts in containers
+6. disable schema extraction
 
 
 **To-dos**:

@@ -1,0 +1,23 @@
+version: "2.2"
+pipelines:
+    - id: mongo-to-file-again
+      status: running
+      name: ""
+      description: MongoDB to file
+      connectors:
+        - id: mongo-source
+          type: source
+          plugin: builtin:mongo
+          settings:
+            collection: users
+            db: test
+            uri: "mongodb://mongo1:30001,mongo2:30002,mongo3:30003/test?replicaSet=my-replica-set"
+            sdk.schema.extract.key.enabled: false
+            sdk.schema.extract.payload.enabled: false
+        - id: noop-destination
+          type: destination
+          plugin: builtin:chaos
+          name: noop-destination
+          settings:
+            sdk.schema.extract.key.enabled: false
+            sdk.schema.extract.payload.enabled: false

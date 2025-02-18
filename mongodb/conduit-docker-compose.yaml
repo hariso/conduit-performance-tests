@@ -1,7 +1,7 @@
 services:
   conduit:
     # https://github.com/hariso/conduit-mongo-connect
-    image: 'ghcr.io/hariso/custom-conduit:v0.2.0'
+    image: 'ghcr.io/hariso/custom-conduit:v0.3.0'
     container_name: conduit
 #    depends_on:
 #      broker:

@@ -19,5 +19,6 @@ pipelines:
           settings:
             servers: "broker:29092"
             topic: destination-topic
+            compression: "none"
             sdk.batch.size: 10000
             sdk.batch.delay: "1s"

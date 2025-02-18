@@ -4,4 +4,4 @@ set -eou pipefail
 
 ./reset_infra.sh
 
-docker compose -f connect-docker-compose.yaml up --wait --wait-timeout 45 --remove-orphans
+docker compose -f connect-docker-compose.yaml up --wait --wait-timeout 45

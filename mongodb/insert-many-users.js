@@ -15,7 +15,7 @@ function randomDate() {
 }
 
 // Total number of documents and batch size
-const totalDocs = 3000000;
+const totalDocs = 2000000;
 const batchSize = 10000;
 let batch = [];
 

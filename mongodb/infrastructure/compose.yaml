@@ -51,19 +51,6 @@ services:
     networks:
       - benchi
 
-  mongo-init:
-    image: 'mongo:5'
-    container_name: mongo-init
-    restart: "no"
-    depends_on:
-      mongo1:
-        condition: service_healthy
-    volumes:
-      - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js
-    entrypoint: ["mongosh", "--host", "mongo1:30001", "/docker-entrypoint-initdb.d/init-db.js"]
-    networks:
-      - benchi
-
   broker:
     image: confluentinc/cp-server:7.8.1
     hostname: broker

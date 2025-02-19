@@ -27,15 +27,23 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 "$SCRIPT_DIR"/reset_infra.sh
 
+printf "\n\n"
+echo "Running $TOOL"
 docker compose -f "$SCRIPT_DIR"/"$TOOL"/compose.yaml up --wait --wait-timeout 45
 
 if [[ "$MODE" == "snapshot" ]]; then
+    printf "\n\n"
+    echo "Inserting test data..."
     "$SCRIPT_DIR"/infrastructure/insert_test_data.sh
 fi
 
+printf "\n\n"
+echo "Starting pipeline..."
 "$SCRIPT_DIR"/"$TOOL"/start_pipeline.sh
 
 if [[ "$MODE" == "cdc" ]]; then
+    printf "\n\n"
+    echo "Inserting test data..."
     "$SCRIPT_DIR"/infrastructure/insert_test_data.sh
 fi
 

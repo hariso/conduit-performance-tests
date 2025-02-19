@@ -22,20 +22,24 @@ conduit:
             sdk.schema.extract.key.enabled: false
             sdk.schema.extract.payload.enabled: false
         rate was 5.7 MB/s, 5 million records in 6 minutes, giving 14k records per second
+    
     mongodb to kafka, test 1:
         mongo, 1 000 000 at 10k batches
         rate was 2.8 MB/s
+
     mongodb to kafka, test 2:
         mongo, 2 000 000 at 10k batches
         kafka:
             compression: none
         rate was cca 14-15 MB/s
+
     mongodb to kafka, test 3:
         mongo, 2 000 000 at 10k batches
         kafka:
             compression: none
             batch size: 20
         rate was cca 28 MB/s
+
     mongodb to kafka, test 4:
         mongo, with structured daa, 2M docs, 10k batches
         kafka:
@@ -60,6 +64,14 @@ conduit:
             sdk.batch.delay: "1s"
         rate: 
             cca 14 MB/s
+
+    mongodb to kafka, test 6:
+        mongo, with structured data, 2M docs, 10k batches
+        kafka:
+            sdk.batch.size: 10000
+            sdk.batch.delay: "1s"
+            sdk.record.format: "debezium/json"
+        rate: 19-23 MB/s
 
 connect:
     mongodb to kafka, test 1:

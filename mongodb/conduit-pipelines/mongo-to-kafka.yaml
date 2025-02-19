@@ -22,7 +22,9 @@ pipelines:
             servers: "broker:29092"
             topic: destination-topic
             compression: "none"
-            sdk.batch.size: 10000
+            # batch size in Kafka Connect is 16kb, messages are around 800b
+            # which results in about 20 messages per batch.
+            sdk.batch.size: 20
             sdk.batch.delay: "1s"
-            sdk.schema.extract.key.enabled: false
-            sdk.schema.extract.payload.enabled: false
+            sdk.record.format: "template"
+            sdk.record.format.options: "{{ .Payload }}"

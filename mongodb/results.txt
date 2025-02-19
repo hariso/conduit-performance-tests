@@ -25,6 +25,41 @@ conduit:
     mongodb to kafka, test 1:
         mongo, 1 000 000 at 10k batches
         rate was 2.8 MB/s
+    mongodb to kafka, test 2:
+        mongo, 2 000 000 at 10k batches
+        kafka:
+            compression: none
+        rate was cca 14-15 MB/s
+    mongodb to kafka, test 3:
+        mongo, 2 000 000 at 10k batches
+        kafka:
+            compression: none
+            batch size: 20
+        rate was cca 28 MB/s
+    mongodb to kafka, test 4:
+        mongo, with structured daa, 2M docs, 10k batches
+        kafka:
+            compression: "none"
+            # batch size in Kafka Connect is 16kb, messages are around 800b
+            # which results in about 20 messages per batch.
+            sdk.batch.size: 20
+            sdk.batch.delay: "1s"
+            sdk.record.format: "template"
+            sdk.record.format.options: "{{ .Payload }}"
+        rate: 
+            cca 6.6 MB/s
+
+    mongodb to kafka, test 5:
+        same as test 4 above, but not template
+        mongo, with structured data, 2M docs, 10k batches
+        kafka:
+            compression: "none"
+            # batch size in Kafka Connect is 16kb, messages are around 800b
+            # which results in about 20 messages per batch.
+            sdk.batch.size: 20
+            sdk.batch.delay: "1s"
+        rate: 
+            cca 14 MB/s
 
 connect:
     mongodb to kafka, test 1:

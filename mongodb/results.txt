@@ -73,6 +73,17 @@ conduit:
             sdk.record.format: "debezium/json"
         rate: 19-23 MB/s
 
+    mongodb to kafka, test 7:
+        kafka:
+            compression: "none"
+            # batch size in Kafka Connect is 16kb, messages are around 800b
+            # which results in about 20 messages per batch.
+            sdk.batch.size: 10000
+            sdk.batch.delay: "1s"
+            sdk.record.format: "opencdc/json"
+            sdk.record.format.options: "position.excluded=true"
+        rate: 10.5 MB/s, few times
+
 connect:
     mongodb to kafka, test 1:
         mongo, 1 000 000 at 10k batches

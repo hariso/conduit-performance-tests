@@ -2,9 +2,11 @@
 
 set -eou pipefail
 
+
 echo "Starting infrastructure..."
 
-docker compose -f infrastructure-docker-compose.yaml up --wait --wait-timeout 20
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+docker compose -f "$SCRIPT_DIR/infrastructure/compose.yaml" up --wait --wait-timeout 20
 
 # mongo-init needs some time
 sleep 10

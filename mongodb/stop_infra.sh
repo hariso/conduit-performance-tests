@@ -4,6 +4,7 @@ set -eou pipefail
 
 echo "Stopping infrastructure..."
 
-docker compose -f infrastructure-docker-compose.yaml down
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+docker compose -f "$SCRIPT_DIR/infrastructure/compose.yaml" down
 
-echo "Infrastructure stoppped."
+echo "Infrastructure stopped."

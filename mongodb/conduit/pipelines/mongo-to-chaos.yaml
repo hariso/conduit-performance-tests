@@ -1,9 +1,9 @@
 version: "2.2"
 pipelines:
-    - id: mongo-to-file-again
-      status: running
+    - id: mongo-to-noop
+      status: stopped
       name: ""
-      description: MongoDB to file
+      description: MongoDB to NoOp (chaos)
       connectors:
         - id: mongo-source
           type: source

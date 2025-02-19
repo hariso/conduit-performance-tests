@@ -9,7 +9,7 @@ services:
 #      mongo-init:
 #        condition: service_completed_successfully  # Ensure it only starts after DB is ready
     volumes:
-      - './conduit-pipelines/mongo-to-kafka.yaml:/app/pipelines/mongo-to-kafka.yaml'
+      - './pipelines/mongo-to-kafka.yaml:/app/pipelines/mongo-to-kafka.yaml'
     ports:
       - '8081:8080'
     networks:

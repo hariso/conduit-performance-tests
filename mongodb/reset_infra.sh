@@ -2,8 +2,10 @@
 
 set -eou pipefail
 
-./stop_infra.sh
-./clean_up.sh
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-./reset_network.sh
-./start_infra.sh
+"$SCRIPT_DIR"/stop_infra.sh
+"$SCRIPT_DIR"/clean_up.sh
+
+"$SCRIPT_DIR"/reset_network.sh
+"$SCRIPT_DIR"/start_infra.sh

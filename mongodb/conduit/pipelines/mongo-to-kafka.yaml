@@ -26,5 +26,5 @@ pipelines:
             # which results in about 20 messages per batch.
             sdk.batch.size: 10000
             sdk.batch.delay: "1s"
-            sdk.record.format: "opencdc/json"
-            sdk.record.format.options: "position.excluded=true"
+#            sdk.record.format: "debezium/json"
+#            sdk.record.format.options: "position.excluded=true"

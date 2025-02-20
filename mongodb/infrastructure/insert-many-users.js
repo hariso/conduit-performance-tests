@@ -7,21 +7,14 @@ const themes = ['light', 'dark', 'auto'];
 const devices = ['mobile', 'desktop', 'tablet'];
 const browsers = ['Chrome', 'Firefox', 'Safari', 'Edge'];
 
-// Function to generate a random date within the last year
-function randomDate() {
-  const now = new Date();
-  const past = new Date(now.getTime() - (365 * 24 * 60 * 60 * 1000));
-  return new Date(past.getTime() + Math.random() * (now.getTime() - past.getTime()));
-}
 
 // Total number of documents and batch size
-const totalDocs = 2000000;
-const batchSize = 10000;
+const totalDocs = 2_000_000;
+const batchSize = 10_000;
 let batch = [];
 
 // Loop through and generate documents
 for (let i = 0; i < totalDocs; i++) {
-  const createdAt = randomDate();
   const doc = {
     userId: new ObjectId(),
     username: 'user' + i,
@@ -38,8 +31,6 @@ for (let i = 0; i < totalDocs; i++) {
     },
     status: statuses[Math.floor(Math.random() * statuses.length)],
     subscriptionType: subscriptionTypes[Math.floor(Math.random() * subscriptionTypes.length)],
-    lastLogin: new Date(createdAt.getTime() + Math.random() * (new Date().getTime() - createdAt.getTime())),
-    createdAt: createdAt,
     age: Math.floor(Math.random() * 62) + 18,
     preferences: {
       notifications: Math.random() > 0.5,
@@ -47,7 +38,6 @@ for (let i = 0; i < totalDocs; i++) {
       theme: themes[Math.floor(Math.random() * themes.length)]
     },
     metadata: {
-      lastUpdated: new Date(),
       deviceType: devices[Math.floor(Math.random() * devices.length)],
       browser: browsers[Math.floor(Math.random() * browsers.length)]
     }

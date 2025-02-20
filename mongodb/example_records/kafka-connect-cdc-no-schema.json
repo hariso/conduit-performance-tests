@@ -1,0 +1,7 @@
+{
+  "schema": {
+    "type": "string",
+    "optional": false
+  },
+  "payload": "{\"_id\": {\"$oid\": \"67b71d70bb1d64c46ee45979\"}, \"userId\": {\"$oid\": \"67b71d70bb1d64c46ee43269\"}, \"username\": \"user0\", \"email\": \"user0@example.com\", \"firstName\": \"Alice\", \"lastName\": \"Brown\", \"phone\": \"+1733850345\", \"address\": {\"street\": \"845 Main St\", \"city\": \"New York\", \"state\": \"IL\", \"zipCode\": \"11977\", \"country\": \"USA\"}, \"status\": \"pending\", \"subscriptionType\": \"basic\", \"age\": 34, \"preferences\": {\"notifications\": false, \"newsletter\": true, \"theme\": \"light\"}, \"metadata\": {\"deviceType\": \"tablet\", \"browser\": \"Firefox\"}}"
+}

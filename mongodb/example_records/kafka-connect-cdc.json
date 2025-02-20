@@ -1,0 +1,161 @@
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "type": "string",
+        "optional": true,
+        "field": "_id"
+      },
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": true,
+            "field": "city"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "country"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "state"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "street"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "zipCode"
+          }
+        ],
+        "optional": true,
+        "name": "address",
+        "field": "address"
+      },
+      {
+        "type": "int32",
+        "optional": true,
+        "field": "age"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "email"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "firstName"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "lastName"
+      },
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": true,
+            "field": "browser"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "deviceType"
+          }
+        ],
+        "optional": true,
+        "name": "metadata",
+        "field": "metadata"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "phone"
+      },
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "boolean",
+            "optional": true,
+            "field": "newsletter"
+          },
+          {
+            "type": "boolean",
+            "optional": true,
+            "field": "notifications"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "theme"
+          }
+        ],
+        "optional": true,
+        "name": "preferences",
+        "field": "preferences"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "status"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "subscriptionType"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "userId"
+      },
+      {
+        "type": "string",
+        "optional": true,
+        "field": "username"
+      }
+    ],
+    "optional": false,
+    "name": "default"
+  },
+  "payload": {
+    "_id": "{\"$oid\": \"67b71c08d3b37f8871e45979\"}",
+    "address": {
+      "city": "New York",
+      "country": "USA",
+      "state": "CA",
+      "street": "489 Main St",
+      "zipCode": "76618"
+    },
+    "age": 72,
+    "email": "user0@example.com",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "metadata": {
+      "browser": "Safari",
+      "deviceType": "desktop"
+    },
+    "phone": "+1528662905",
+    "preferences": {
+      "newsletter": true,
+      "notifications": true,
+      "theme": "dark"
+    },
+    "status": "pending",
+    "subscriptionType": "enterprise",
+    "userId": "{\"$oid\": \"67b71c08d3b37f8871e43269\"}",
+    "username": "user0"
+  }
+}

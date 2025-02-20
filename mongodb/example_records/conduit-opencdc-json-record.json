@@ -1,0 +1,44 @@
+{
+  "position": "eyJtb2RlIjoiY2RjIiwicmVzdW1lVG9rZW4iOiJnUUFBQUFKZlpHRjBZUUJ4QUFBQU9ESTJOMEkzTVVGQ1JEQXdNREF3TURBeE1rSXdNakpETURFd01ESTVOa1UxUVRFd01EUkdSalF3T0VSRE1qazJNa1kwUkRORlFqUkVNemRDUkRBeU5qWkJNekkwTkRRMk5qUTFSalk1TmpRd01EWTBOamRDTnpGQlFrUTFOakEzTURJd05UTkNSVFExT1RjNU1EQXdOQUFBIn0=",
+  "operation": "create",
+  "metadata": {
+    "conduit.source.connector.id": "mongo-to-kafka:mongo-source",
+    "opencdc.collection": "users",
+    "opencdc.createdAt": "-6795364578871345152",
+    "opencdc.readAt": "1740053181760220458"
+  },
+  "key": {
+    "_id": "67b71abd560702053be45979"
+  },
+  "payload": {
+    "before": null,
+    "after": {
+      "_id": "67b71abd560702053be45979",
+      "address": {
+        "city": "Chicago",
+        "country": "USA",
+        "state": "CA",
+        "street": "286 Main St",
+        "zipCode": "18900"
+      },
+      "age": 39,
+      "email": "user0@example.com",
+      "firstName": "John",
+      "lastName": "Smith",
+      "metadata": {
+        "browser": "Chrome",
+        "deviceType": "desktop"
+      },
+      "phone": "+1589339927",
+      "preferences": {
+        "newsletter": true,
+        "notifications": false,
+        "theme": "auto"
+      },
+      "status": "active",
+      "subscriptionType": "premium",
+      "userId": "67b71abd560702053be43269",
+      "username": "user0"
+    }
+  }
+}

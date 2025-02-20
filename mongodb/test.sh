@@ -29,7 +29,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 printf "\n\n"
 echo "Running $TOOL"
-docker compose -f "$SCRIPT_DIR"/"$TOOL"/compose.yaml up --wait --wait-timeout 45
+docker compose -f "$SCRIPT_DIR"/"$TOOL"/compose.yaml up --wait --wait-timeout 60
 
 if [[ "$MODE" == "snapshot" ]]; then
     printf "\n\n"

@@ -1,5 +1,5 @@
 {
-    "name": "airbus",
+    "name": "kafka-connect-mongo",
     "config":
     {
         "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
@@ -7,9 +7,7 @@
         "database": "test",
         "collection": "users",
         
-        "startup.mode": "copy_existing",
-        "change.stream.full.document": "required",
-        "publish.full.document.only": true,
+        "change.stream.full.document": "updateLookup",
 
         "output.schema.infer.value": "false",
         "output.format.value": "json",
@@ -18,8 +16,8 @@
         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
         
-        "topic.prefix": "airbus",
-        "poll.await.time.ms": 1000,
-        "poll.max.batch.size": 1000
+        "topic.prefix": "kafkaconnect",
+        "poll.await.time.ms": 5000,
+        "poll.max.batch.size": 1
     }
 }

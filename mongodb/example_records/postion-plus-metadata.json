@@ -1,0 +1,9 @@
+{
+  "position": "eyJtb2RlIjoiY2RjIiwicmVzdW1lVG9rZW4iOiJnUUFBQUFKZlpHRjBZUUJ4QUFBQU9ESTJOMEkzTVVGQ1JEQXdNREF3TURBeE1rSXdNakpETURFd01ESTVOa1UxUVRFd01EUkdSalF3T0VSRE1qazJNa1kwUkRORlFqUkVNemRDUkRBeU5qWkJNekkwTkRRMk5qUTFSalk1TmpRd01EWTBOamRDTnpGQlFrUTFOakEzTURJd05UTkNSVFExT1RjNU1EQXdOQUFBIn0=",
+  "operation": "create",
+  "metadata": {
+    "conduit.source.connector.id": "mongo-to-kafka:mongo-source",
+    "opencdc.collection": "users",
+    "opencdc.createdAt": "-6795364578871345152",
+    "opencdc.readAt": "1740053181760220458"
+  },

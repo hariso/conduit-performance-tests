@@ -83,6 +83,13 @@ conduit:
             sdk.record.format: "opencdc/json"
             sdk.record.format.options: "position.excluded=true"
         rate: 10.5 MB/s, few times
+    mongodb to kafka, test 8:
+        mongodb: structured data, 2M docs, batches of 7500, took 120s
+        kafka:
+            sdk.batch.size: 10000
+            sdk.batch.delay: "1s"
+        rate: 11500/s, 175s
+
 
 connect:
     mongodb to kafka, test 1:

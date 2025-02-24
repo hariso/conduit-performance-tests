@@ -3,7 +3,8 @@ services:
     image: 'ghcr.io/hariso/custom-conduit:v0.5.0'
     container_name: conduit
     volumes:
-      - './pipelines/mongo-to-kafka.yaml:/app/pipelines/mongo-to-kafka.yaml'
+      - './pipelines/mongo-to-kafka.yaml:/app/pipelines/p.yaml'
+      - '../example_records/conduit-opencdc-json-record.json:/app/record.json'
     ports:
       - '8081:8080'
     networks:

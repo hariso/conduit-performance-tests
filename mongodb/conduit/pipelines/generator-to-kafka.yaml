@@ -3,34 +3,18 @@ pipelines:
     - id: generator-to-kafka
       status: stopped
       name: ""
-      description: Generator to Kafak
+      description: Generator to Kafka
       connectors:
         - id: generator-source
           type: source
           plugin: generator
           settings:
             # global settings
-            rate: 14000
-            recordCount: 5000000
+            # rate: 14000
+            recordCount: 2000000
             # default collection
-            format.type: structured
-            format.options.id: int
-            format.options.name: string
-            format.options.age: int
-            format.options.email: string
-            format.options.phone: string
-            format.options.address: string
-            format.options.city: string
-            format.options.state: string
-            format.options.country: string
-            format.options.zip_code: string
-            format.options.created_at: time
-            format.options.updated_at: time
-            format.options.is_active: bool
-            format.options.subscription_type: string
-            format.options.session_duration: duration
-            format.options.last_login: time
-            format.options.is_verified: bool
+            format.type: file
+            format.options.path: "/app/record.json"
             operations: create
             sdk.schema.extract.key.enabled: false
             sdk.schema.extract.payload.enabled: false
@@ -41,7 +25,7 @@ pipelines:
           settings:
             servers: "broker:29092"
             topic: destination-topic
-            sdk.batch.size: 50000
+            sdk.batch.size: 10000
             sdk.batch.delay: "1s"
             sdk.schema.extract.key.enabled: false
             sdk.schema.extract.payload.enabled: false

@@ -16,8 +16,9 @@ pipelines:
             sdk.schema.extract.payload.enabled: false
         - id: noop-destination
           type: destination
-          plugin: builtin:chaos
+          plugin: builtin:log
           name: noop-destination
           settings:
+            level: "trace"
             sdk.schema.extract.key.enabled: false
             sdk.schema.extract.payload.enabled: false

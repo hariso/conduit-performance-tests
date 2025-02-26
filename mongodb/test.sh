@@ -31,19 +31,32 @@ printf "\n\n"
 echo "Running $TOOL"
 docker compose -f "$SCRIPT_DIR"/"$TOOL"/compose.yaml up --wait --wait-timeout 60
 
-if [[ "$MODE" == "snapshot" ]]; then
-    printf "\n\n"
-    echo "Inserting test data..."
-    "$SCRIPT_DIR"/infrastructure/insert_test_data.sh
-fi
 
 printf "\n\n"
-echo "Starting pipeline..."
-"$SCRIPT_DIR"/"$TOOL"/start_pipeline.sh
+echo "Creating pipeline."
+"$SCRIPT_DIR"/"$TOOL"/create_pipeline.sh
+
 
 if [[ "$MODE" == "cdc" ]]; then
     printf "\n\n"
-    echo "Inserting test data..."
-    "$SCRIPT_DIR"/infrastructure/insert_test_data.sh
+    echo "Mode is set to CDC, starting pipeline so that it sets the position/offset."
+
+    printf "\n\n"
+    echo "Starting pipeline..."
+    "$SCRIPT_DIR"/"$TOOL"/start_pipeline.sh
+    
+    sleep 5
+    
+
+    printf "\n\n"
+    echo "Stopping pipeline..."
+    "$SCRIPT_DIR"/"$TOOL"/stop_pipeline.sh
 fi
 
+printf "\n\n"
+echo "Inserting test data..."   
+"$SCRIPT_DIR"/infrastructure/insert_test_data.sh
+
+printf "\n\n"
+echo "Starting pipeline..."   
+"$SCRIPT_DIR"/"$TOOL"/start_pipeline.sh

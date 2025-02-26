@@ -6,7 +6,7 @@ set -eou pipefail
 echo "Starting infrastructure..."
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-docker compose -f "$SCRIPT_DIR/infrastructure/compose.yaml" up --wait --wait-timeout 20
+docker compose -f "$SCRIPT_DIR/infrastructure/compose.yaml" up --wait --wait-timeout 45
 
 # Get broker health status
 BROKER_HEALTH=$(docker inspect --format='{{.State.Health.Status}}' broker || echo "unknown")

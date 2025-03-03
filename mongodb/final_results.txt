@@ -1,0 +1,20 @@
+---------------------
+SNAPSHOT
+---------------------
+
+conduit
+	Average messages/sec:    15625
+
+connect:
+	Average messages/sec:    15267
+
+---------------------
+CDC
+---------------------
+
+conduit:
+	Average messages/sec:    17699
+
+
+connect:
+	Average messages/sec:    10362

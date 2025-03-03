@@ -12,6 +12,7 @@ pipelines:
             collection: users
             db: test
             uri: "mongodb://mongo1:30001,mongo2:30002,mongo3:30003/test?replicaSet=my-replica-set"
+            sdk.batch.size: 10000
             sdk.schema.extract.key.enabled: false
             sdk.schema.extract.payload.enabled: false
         - id: kafka-destination

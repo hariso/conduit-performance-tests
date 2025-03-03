@@ -1,4 +1,6 @@
 conduit:
+    mongodb to kafka, new pipeline architecture:
+
     mongodb to noop, test 1
         took aroudn 150s to write everything to logs
     generator, test 1:
@@ -101,5 +103,10 @@ connect:
     mongodb to kafka, test 1:
         mongo, 1 000 000 at 10k batches
         rate was 10.5 MB/s
+    mongodb to kafka, cdc:
+        kafka producer, default batch settings
+        Average messages/sec:    13605
+    mongodb to kafka, snapshot:
+        Average messages/sec:    15267
 
 
